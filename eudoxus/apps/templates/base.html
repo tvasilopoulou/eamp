@@ -1,0 +1,181 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{% static 'base.css' %}" media="screen" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+{% block extrahead %}{% endblock %}
+</head>
+<body>
+    <nav >
+        <div class="row my-2">
+
+            <div class="col-3" id="logo">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                        <img src="{% static 'images/logo.png' %}" width="60" height="50" class="d-inline-block align-top" alt="eudoxus">
+                    </a>
+            </div>
+
+            <div class="col-4">
+                <form class="form-inline" method="GET" action='{% url 'search' %}'>
+                    <input class="form-control mr-sm-2" name='q' type="search" placeholder="Αναζήτηση" aria-label="Search" value="{{ request.GET.q }}">
+                    <button class="btn btn-info my-2 my-sm-0" type="submit"><i top="5"class="fa fa-search"></i></button>
+                </form>
+            </div>
+
+
+
+
+<!--CHECK COL 4-->
+
+
+
+            <div class="col-1">
+            </div>
+
+        <div class="col-4">
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+
+                    <div class="icons" role="group" aria-label="First group">
+                        <a id="FAQ" href="{% url 'constr' %}"><img id = "faq" src="{% static 'images/faqs.png' %}" width="60" height="53" alt="FAQ" title="Συχνές Ερωτήσεις"></a>
+                        <a href="{% url 'constr' %}"><img id = "faq" src="{% static 'images/phone.png' %}" width="60" height="53" alt="Επικοινωνία" title="Επικοινωνία"></a>
+                    </div>
+
+                    {% if user.is_authenticated %}
+                        <a class="btn btn-info sign-in mr-3" href="{% url 'profile' %}">Προφίλ</a>
+                        <a class="btn btn-info sign-in" href="{% url 'logout' %}">Αποσύνδεση</a>
+                    {% else %}
+                        <a class="btn btn-info sign-in mr-3" href="{% url 'signup' %}">Εγγραφή</a>
+                        <a class="btn btn-info sign-in" href="{% url 'login' %}">Σύνδεση</a>
+                    {% endif %}
+
+            </div>
+        </div>
+
+    </nav>
+    <div class="row">
+        <div class="col-3">
+            <div class="sidenav accordion"  id="accordionExample">
+                <nav class="nav flex-column">
+
+                    <a class="nav-link" href="{% url 'home' %}">Αρχική</a>
+                    <a class="nav-link" href="{% url 'books' %}">Συγγράμματα</a>
+
+                    <div id="headingStudents">
+                        <a class="nav-link" data-toggle="collapse" data-target="#collapseStudents" aria-expanded="false" aria-controls="collapseStudents">
+                            Φοιτητές
+                        </a>
+                    </div>
+                    <div id="collapseStudents" class="collapse dropdown-container" aria-labelledby="headingStudents" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <a href="{% url 'dilosh' %}">Δηλώσεις</a>
+                            <a class="last" href="{% url 'constr' %}">Ανταλλαγή Συγγραμμάτων</a>
+                        </div>
+                    </div>
+
+                    <div id="headingPublisher">
+                        <a class="nav-link" data-toggle="collapse" data-target="#collapsePublisher" aria-expanded="false" aria-controls="collapsePublisher">
+                            Εκδότες
+                        </a>
+                    </div>
+                    <div id="collapsePublisher" class="collapse dropdown-container" aria-labelledby="headingPublisher" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <a href="{% url 'constr' %}">Διαχείριση Συγγραμμάτων</a>
+                            <a href="{% url 'constr' %}">Υπηρεσίες Ταχυμεταφοράς</a>
+                            <a class="last" href="{% url 'constr' %}">Κοστολόγηση</a>
+                        </div>
+                    </div>
+
+                    <div id="headingSecretary">
+                        <a class="nav-link" data-toggle="collapse" data-target="#collapseSecretary" aria-expanded="false" aria-controls="collapseSecretary">
+                            Γραμματείες
+                        </a>
+                    </div>
+                    <div id="collapseSecretary" class="collapse dropdown-container" aria-labelledby="headingSecretary" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <a href="{% url 'constr' %}">Διαχείριση Μαθημάτων</a>
+                            <a class="last" href="{% url 'constr' %}">Οδηγίες Χρήσης ΚΠΣ</a>
+                        </div>
+                    </div>
+
+                    <div id="headingFreeEStuff">
+                        <a class="nav-link" data-toggle="collapse" data-target="#collapseFreeEStuff" aria-expanded="false" aria-controls="collapseFreeEStuff">
+                            Διαθέτες Δωρεάν eΥλικού
+                        </a>
+                    </div>
+                    <div id="collapseFreeEStuff" class="collapse dropdown-container" aria-labelledby="headingFreeEStuff" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <a href="{% url 'constr' %}">Διαχείριση Σημειώσεων</a>
+                            <a class="last" href="{% url 'constr' %}">Λίστα eΣυγγραμμάτων</a>
+                        </div>
+                    </div>
+
+                    <div id="headingDelivery">
+                        <a class="nav-link" data-toggle="collapse" data-target="#collapseDelivery" aria-expanded="false" aria-controls="collapseDelivery">
+                        Σημεία Διανομής
+                        </a>
+                    </div>
+                    <div id="collapseDelivery" class="collapse dropdown-container" aria-labelledby="headingDelivery" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <a href="{% url 'constr' %}">Παράδοση Συγγραμμάτων</a>
+                            <a href="{% url 'constr' %}">Εκδότες και Συγγράμματα</a>
+                            <a href="{% url 'constr' %}">Βιβλιοθήκες</a>
+                            <a href="{% url 'constr' %}">Τμήματα</a>
+                            <a class="last" href="{% url 'constr' %}">Διαθεσιμότητα</a>
+                        </div>
+                    </div>
+
+                    <a class="nav-link" href="{% url 'constr' %}">Ανακοινώσεις</a>
+                </nav>
+            </div>
+        </div>
+
+
+
+        <div class="col-9">
+                {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <br>
+    <footer class="page-footer font-small" id="footer">
+            <br>
+            <!-- Footer Links -->
+            <div class="container text-center">
+
+              <!-- Grid row -->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-3 mx-auto">
+                    <a class="text-uppercase mt-3 mb-4">ΔΗΜΙΟΥΡΓΟΙ</a>
+                    </div>
+                    <div class="col-3 mx-auto">
+                    <a class="text-uppercase mt-3 mb-4">ΣΧΕΤΙΚΕΣ ΕΦΑΡΜΟΓΕΣ</a>
+                    </div>
+                    <div class="col-3 mx-auto">
+                    <a class="text-uppercase mt-3 mb-4">ΧΡΗΜΑΤΟΔΟΤΕΣ</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2019 Copyright:
+              <a href=""> Ομάδα Πύραυλος</a>
+            </div>
+            <!-- Copyright -->
+
+          </footer>
+
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>

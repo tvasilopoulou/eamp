@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css" href="{% static 'apps/form.css' %}" media="screen" />
+{% endblock %}
+
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page"> <a class="breadcrumb-item" href="{% url 'home' %}" > Αρχική</a></li>
+        <li class="breadcrumb-item active p0" aria-current="page"> <a class="breadcrumb-item active" href="{% url 'login' %}" > Σύνδεση</a></li>
+    </ol>
+</nav>
+
+<div class="text-center">
+    <h4>Σύνδεση</h4>
+    <br>
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" class="form-control" name="username" placeholder="Όνομα Χρήστη">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Κωδικός Πρόσβασης">
+        </div>
+        <div class="col-md-12 control">
+            <div id="newaccount">
+                Δεν έχετε λογαριασμό;
+                <a href="{% url 'signup' %}">Εγγραφείτε</a>
+            </div>
+        </div>
+        <br>
+        <div>
+            <button type="submit" class="btn btn-info">Είσοδος</button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

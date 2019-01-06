@@ -1,0 +1,282 @@
+html{
+    height: 100%;
+    margin: auto;
+    overflow-y: scroll;
+}
+
+body {
+    font-family: "Arial";
+    background-color: #d5dce4;
+}
+/* ************************************************************************************************** */
+/* NAV BAR */
+.navbar {
+    width: 97%;
+}
+
+.navbar a {
+    color: white;
+    font-size: 17px;
+}
+
+/* Navbar LOGO */
+#logo{
+    position: relative;
+    left: 60px;
+}
+
+/* SEARCH BAR */
+.form-inline{
+    position: relative;
+    right: 75px;
+}
+
+.form-inline .btn {
+    height: 38px;
+    border-radius: 0.15rem;
+}
+
+.form-inline .form-control{
+    height: 40px;
+    box-shadow: none;
+}
+
+.form-control {
+    padding-right: 60px;
+    margin: 5px;
+    margin-right: 0 !important;
+    border-radius: 0;
+}
+
+/* COMMUNICATION AND FAQS ICONS */
+.icons {
+    position: relative;
+    padding-right: 20px;
+}
+
+#FAQ {
+    position: relative;
+    right: 10px;
+}
+
+/* Navbar BUTTONS */
+.btn-info {
+    background-color: #17cacf;
+    border: 2px solid transparent;
+    height: 35px;
+    padding-top: 4px;
+    box-shadow: none !important
+}
+
+.btn-info:hover {
+    background-color: #f8f9fa;
+    color: #17cacf;
+    border: 2px solid #17cacf;
+    opacity: 0.75;
+}
+
+.btn-info:focus, .btn:focus{
+    box-shadow: none;
+}
+
+/* ************************************************************************************************** */
+/* Sign-in */
+.sign-in {
+    position: relative;
+    right: 5px;
+    top: 10px;
+    width: 115px;
+}
+.modal-header {
+    display: inline-block;
+    border: none;
+}
+
+.modal-title{
+    color: #262626;
+    text-align: center;
+}
+
+.modal-footer {
+    position: relative;
+    border: none;
+    width: 40%;
+    left: 30%;
+    align-content: center;
+}
+
+#form-error {
+    z-index: 1;
+    position: absolute;
+}
+
+/* ************************************************************************************************** */
+
+/* SIDENAV */
+.sidenav {
+    padding: 10px;
+    padding-right: 0;
+    height: 100%;
+    width: 260px;
+    top: 121px;
+    left: 40;
+    background-color: #17cacf;
+}
+
+.sidenav a{
+    border: none;
+    padding: 5px;
+    padding-left: 10px;
+    text-decoration: none;
+    font-size: 17px;
+    color: white;
+    display: block;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+.sidenav a:hover {
+    color: #262626;
+    opacity: 0.75;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.nav-link:hover {
+    color: #262626 !important;
+}
+
+.nav-link:active, .nav-link:focus {
+    border-left: solid white;
+}
+
+.row {
+    margin-right: 0;
+}
+
+.dropdown-container {
+    font-size: 14px;
+    background-color: #262626;
+}
+
+.dropdown-container a:hover{
+    color: #17cacf;
+}
+
+.card-body {
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.card-body a {
+    border-bottom: 1px solid #d5dce4 !important;
+}
+
+.card-body  a.last {
+    border: none !important;
+}
+
+/* ************************************************************************************************** */
+/* MAIN CONTENT OF PAGE */
+.col-9 {
+    background-color: #f8f9fa;
+    min-height: 500px;
+    height: auto;
+    right: 55px;
+    padding: 0;
+    padding-bottom: 20px;
+}
+
+/* HOME */
+/* BREADCRUMBS */
+
+.breadcrumb {
+    background-color: #262626;
+    padding: 2px;
+    border-radius: 0;
+    opacity: 0.75;
+}
+
+.breadcrumb-item {
+    color: #17cacf;
+}
+
+.breadcrumb-item.active {
+    color: #d5dce4;
+}
+
+/* MAIN LINKS */
+#links {
+    color: #262626;
+    top: 20px;
+    position: relative;
+}
+
+#links2 {
+    right: 5px;
+    position: relative;
+}
+
+#link {
+    font-size: 16px;
+    display: grid;
+    height: 140px;
+    margin: 15px;
+}
+
+.image {
+    color: #17cacf;
+    font-size: 16px;
+    font-weight: bold;
+    display: grid;
+    text-align: -webkit-center;
+    line-height: normal;
+}
+
+.image:hover {
+    color: #262626;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+
+/* ************************************************************************************************** */
+/* FOOTER */
+
+#footer {
+  background-color: #262626;
+  bottom: 0;
+  display: block;
+  color: #f8f9fa;
+  width: 100%;
+}
+
+.left{
+    padding-top: 12px;
+    padding-left: 30px;
+    float: left;
+    text-align:center;
+    font-size: 11px;
+
+
+}
+.right{
+    padding-top: 12px;
+    padding-right: 30px;
+    float:right;
+    text-align:center;
+    font-size: 11px;
+
+}
+.centered{
+    padding-top: 12px;
+    text-align:center;
+    font-size: 11px;
+}

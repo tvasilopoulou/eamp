@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li aria-current="page"> <a class="breadcrumb-item active" href="{% url 'home' %}" > Αρχική</a></li>
+    </ol>
+</nav>
+<div id="links" class="d-flex">
+    
+    <div id="link">
+        Γενικά:
+        <br>
+        <br>
+        <a class="image" href="{% url 'books' %}"><img src="{% static 'images/books.png' %}" width="50" height="50" alt="Συγγράμματα" title="Συγγράμματα"> <br>Συγγράμματα</a>   
+    </div>
+
+    <div id="link">
+        Φοιτητές:
+        <br>
+        <br>
+        <a class="image" href="{% url 'dilosh' %}"><img src="{% static 'images/cap.png' %}" width="50" height="50" alt="Δήλωση Συγγραμμάτων" title="Δήλωση Συγγραμμάτων"><br> Δήλωση Συγγραμμάτων</a>
+    </div>
+
+    <div id="link">
+        Εκδότες:
+        <br>
+        <br>
+        <a class="image" href="{% url 'constr' %}"><img src="{% static 'images/book.png' %}" width="50" height="50" alt="Διαχείριση Συγγραμμάτων" title="Διαχείριση Συγγραμμάτων"><br> Διαχείριση Συγγραμμάτων</a>
+    </div>
+
+    <div id="link">
+        Γραμματείες:
+        <br>
+        <br>
+        <a class="image" href="{% url 'constr' %}"><img src="{% static 'images/working.png' %}" width="50" height="50" alt="Διαχείριση Μαθημάτων" title="Διαχείριση Μαθημάτων"> <br>Διαχείριση Μαθημάτων</a>
+    </div>
+
+    <div id="link">
+        Διαθέτες eΥλικού:
+        <br>
+        <br>
+        <a class="image" href="{% url 'constr' %}"><img src="{% static 'images/elearning.png' %}" width="50" height="50" alt="Διαχείριση Σημειώσεων" title="Διαχείριση Σημειώσεων"><br> Διαχείριση Σημειώσεων</a>
+    </div>
+
+    <div id="link">
+        Σημεία Διανομής:
+        <br>
+        <br>
+        <a class="image" href="{% url 'constr' %}"><img src="{% static 'images/give_book.png' %}" width="50" height="50" alt="Παράδοση Συγγραμμάτων" title="Παράδοση Συγγραμμάτων"><br> Παράδοση Συγγραμμάτων</a>
+    </div>
+    
+    
+</div>
+{% endblock content %}

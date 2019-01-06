@@ -1,0 +1,27 @@
+.text-center {
+    width: 50%;
+    left: 230px;
+    top: 20px;
+    position: relative;
+}
+
+a {
+    color: #17cacf;
+}
+
+a:hover {
+    color: #248e92;
+}
+
+.form-group {
+    width: 80%;
+    left: 55px;
+    position: relative;
+}
+
+.custom-select {
+    border-radius: 0;
+    opacity: 0.85;
+    left: 5px;
+    position: relative;
+}
